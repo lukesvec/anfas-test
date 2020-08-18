@@ -4,14 +4,13 @@
     --fontAlt: 'Open Sans', sans-serif;
     --colorBrand: rgb(12, 109, 219);
     --bgGrey: #cecece;
+    --textGrey: #707072;
 }
 
+* {
+    box-sizing: border-box;
+}
 html {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    color: var(--black);
-
-
     // better font rendering across platforms
     font-size: 100%;
     -webkit-text-size-adjust: 100%;
@@ -22,6 +21,11 @@ html {
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: var(--black);
 }
 
 .clearfix:after {
@@ -46,14 +50,26 @@ html {
     width: 100%;
     margin: 0 auto;
 }
-
+@mixin animate {
+    transition: all .3s linear;
+}
+h1,h2,h3,h4,h5,h6  {
+    font-family: var(--fontAlt);
+    text-transform: uppercase;
+    font-weight: 700;
+}
 article {
     @include container;
+    h3 {
+        margin: 4rem 0 2.7rem;
+    }
 }
 p {
     max-width: 768px;
     width: 100%;
     margin: 0 auto;
+    color: var(--textGrey);
+    margin-bottom: 1.5rem;
 }
 
 header {
@@ -79,13 +95,13 @@ header {
                     font-weight: 600;
                     font-family: var(--fontAlt);
                     text-transform: uppercase;
-                    transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1);
                     border-radius: 3px;
+                    @include animate;
                 }
                 &:hover a {
                     background-color: var(--colorBrand);
                     color: var(--white);
-                    transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1)
+                    @include animate;
                 }
             }
         }
@@ -111,7 +127,6 @@ header {
         text-align: center;
         width: 100%;
         align-self: center;
-        font-family: var(--fontAlt);
         font-size: 3.6rem; // 72px pri 20px base
         text-transform: uppercase;
         margin: 0;
@@ -123,7 +138,7 @@ header {
     height: 125px;
     position: absolute;
     bottom: calc(-125px / 2);
-    left: calc(50% - (72px / 2));
+    left: calc(50% - (125px / 2));
     img {
         @include imageCover;
         border-radius: 50%;
@@ -137,48 +152,109 @@ header {
     font-style: italic;
     line-height: 135%;
     text-align: justify;
+    color: var(--black);
 }
 
 .imageFull {
-    @include imageCover;
+    height: 450px;
+    background-color: var(--black);
+    position: relative;
+    img {
+        @include imageCover;
+        @include animate;
+    }
+    > div {
+        position: absolute;
+        top: 0;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        color: var(--white);
+        opacity: 0;
+        @include animate;
+    }
+    &:hover {
+        > div {
+            opacity: 1;
+            @include animate;
+             backdrop-filter: saturate(180%) blur(5px);
+        }
+        img {
+            opacity: .4;
+            @include animate;
+        }
+    }
 }
 
 h3 {
     text-align: center;
 }
-
-.imageRight {
-    display: inline-block;
-    float: right;
+a {
+    text-decoration: underline;
+    color: var(--black);
+    @include animate;
+    &:hover, &:focus, &:active {
+        color: var(--colorBrand);
+        @include animate;
+    }
 }
 
 
 .moreArticles {
     @include container;
     display: flex;
-    margin-top: 3rem;
+    margin: 5rem auto 2.5rem;
     &Item {
         display: flex;
         flex-basis: 0;
         flex-grow: 1;
         flex-shrink: 1;
-        padding: .75rem;
+        padding: 1.7rem;
+        padding-top: 0;
         flex-wrap: wrap;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        &:after {
+            content: "";
+            background: url("/app/image/ico-play.svg") no-repeat 50% 50%;
+            background-size: 100px;
+            width: 100%;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            @include animate;
+        }
         h4 {
             text-align: center;
-            opacity: .65;
+            color: var(--textGrey);
+            text-transform: initial;
             font-weight: normal;
-            transition: all .3s linear;
+            font-size: 1rem;
+            @include animate;
         }
         .imageCard {
             @include imageCover;
-            height: 150px;
+            height: 200px;
             order: -1;
+            @include animate;
         }
         &:hover {
+            &:after {
+                opacity: .4;
+                @include animate;
+            }
+            .imageCard {
+                transform: scale(1.03);
+                @include animate;
+            }
             h4 {
-                opacity: 1;
-                transition: all .3s linear;
+                color: var(--black);
+                @include animate;
             }
         }
     }
@@ -194,6 +270,50 @@ footer {
         margin: 0 auto;
         li {
             display: inline-flex;
+            padding: 0 .4rem;
+            img, svg {
+                width: 36px;
+                height: 36px;
+                object-fit: contain;
+            }
+            svg {
+                fill: var(--textGrey);
+                path {
+                    fill: var(--textGrey);
+                    @include animate;
+                }
+                @include animate;
+                &:hover {
+                    fill: var(--colorBrand);
+                    path {
+                        fill: var(--colorBrand);
+                        @include animate;
+                    }
+                    @include animate;
+                }
+            }
         }
     }
 }
+
+.articleContentImage {
+    max-width: 768px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    &:before {
+        content: "";
+        float: right;
+        height: 320px;
+        width: 320px;
+    }
+}
+.imageRight {
+    float: right;
+    width: 280px;
+    height: 280px;
+    object-position: cover;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
