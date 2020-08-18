@@ -4,7 +4,7 @@
 http://jobs.anfas.tommyart.cz/
 
 #### Doplňující informace
-- Nepouzival jsem striktně px pro deklaraci fontu v css, misto toho radeji pouzival rem/em, ktery se lepe scaluji.
+- Nepouzival jsem striktně px pro deklaraci fontu v css, misto toho radeji pouzival rem/em, ktery se lepe scaluji. Proto velikosti nemusi uplne sedet zadani, ale snazil jsem se ho vizualne drzet
 - Fotky jsou napojene na api od unsplash, takze mohou zpomalit nacitani
 - Testovano ve Chromu, MS Edge, Firefoxu (vse v poslednich verzich)
 - Misto klasickeho serif fontu (TimesNR) jsem zvolil lepsi alternativu
