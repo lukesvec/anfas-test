@@ -1,0 +1,79 @@
+/* 
+pro resp jsem zvolil pristup desktop first, 
+jelikoz je to jednodussi psat jelikoz se nezacinalo navrhem od mobilu
+*/
+
+@media (max-width: 1280px) {
+    .promoHeader {
+        height: 350px;
+        max-height: 45vh;
+        h2 {
+            font-size: 3rem;
+        }
+    }
+}
+@media (max-width: 991px) {
+    .moreArticles {
+        flex-wrap: wrap;
+        margin: 3rem auto 1rem;
+        .moreArticlesItem {
+            flex-basis: 50%;
+        }
+    }
+}
+@media (max-width: 783px) {
+    .promoHeader h2 {
+        font-size: 2rem;
+    }
+    .avatarAuthor {
+        width: 62px;
+        height: 62px;
+        bottom: calc(-62px / 2);
+        left: calc(50% - (62px / 2));
+    }
+    .preText {
+        font-size: 1.3rem;
+        margin: 3.5rem 0 2.5rem;
+    }
+    .imageFull {
+        height: 300px;
+    }
+    article {
+        padding: 0 15px;
+        h3 {
+            margin: 3rem 0 2rem;
+        }
+    }
+    p {
+        font-size: 15px;
+    }
+    .imageRight {
+        width: 150px;
+        height: 150px;
+    }
+    .articleContentImage:before {
+        width: 170px;
+        height: 170px;
+    }
+    .imageFull>div {
+        padding: 0 15px;
+        text-align: center;
+    }
+    .moreArticlesItem {
+        padding: 15px;
+        padding-top: 0;
+        h4 {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .promoHeader h2 {
+        font-size: 1.7rem;
+    }
+    .moreArticles .moreArticlesItem {
+        flex-basis: 100%;
+        margin-bottom: 15px;
+    }
+}
