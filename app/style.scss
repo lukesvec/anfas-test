@@ -2,6 +2,7 @@
     --white: #fff;
     --black: rgb(20, 19, 19);
     --fontAlt: 'Open Sans', sans-serif;
+    --fontMain: 'Libre Baskerville', serif;
     --colorBrand: rgb(12, 109, 219);
     --bgGrey: #cecece;
     --textGrey: #707072;
@@ -23,8 +24,8 @@ html {
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
 body {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-family: var(--fontMain);
+    font-size: 16px;
     color: var(--black);
 }
 
@@ -62,6 +63,8 @@ article {
     @include container;
     h3 {
         margin: 4rem 0 2.7rem;
+        font-weight: 800;
+        letter-spacing: 1.5px;
     }
 }
 p {
@@ -70,6 +73,7 @@ p {
     margin: 0 auto;
     color: var(--textGrey);
     margin-bottom: 1.5rem;
+    line-height: 175%;
 }
 
 header {
@@ -80,6 +84,7 @@ header {
         font-family: var(--fontAlt);
         font-size: 1.5rem;
         font-weight: normal;
+        cursor: pointer;
     }
     nav {
         margin-left: auto;
@@ -147,10 +152,10 @@ header {
 }
 
 .preText {
-    font-size: 24px;
+    font-size: 1.7rem;
     margin: 7rem auto 2.5rem;
     font-style: italic;
-    line-height: 135%;
+    line-height: 150%;
     text-align: justify;
     color: var(--black);
 }
@@ -194,6 +199,7 @@ h3 {
 a {
     text-decoration: underline;
     color: var(--black);
+    font-weight: 600;
     @include animate;
     &:hover, &:focus, &:active {
         color: var(--colorBrand);
@@ -234,8 +240,11 @@ a {
             color: var(--textGrey);
             text-transform: initial;
             font-weight: normal;
-            font-size: 1rem;
+            font-size: .9rem;
             @include animate;
+            line-height: 135%;
+            font-family: var(--fontMain);
+            margin-top: 15px;
         }
         .imageCard {
             @include imageCover;
