@@ -9,6 +9,6 @@ http://jobs.anfas.tommyart.cz/
 - Testovano ve Chromu, MS Edge, Firefoxu (vse v poslednich verzich)
 - Misto klasickeho serif fontu (TimesNR) jsem zvolil lepsi alternativu
 - Snazil jsem se udelat obcas nejaky efekt navic, aby jste videli ze mi neni nic cizi :)
-- Take jsem se snazil k tomu pristupovat z vice uhlu, aby to nebylo vse jen na jedno brdo
+- Take jsem se snazil k tomu pristupovat z vice uhlu, aby to nebylo vse jen na jedno brdo a videli jste jak co delam
 
 Doufam ze se bude libit a budu se tesit na pripadnou spolupraci
