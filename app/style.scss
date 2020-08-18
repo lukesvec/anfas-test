@@ -85,6 +85,12 @@ header {
         font-size: 1.5rem;
         font-weight: normal;
         cursor: pointer;
+        &:hover {
+            animation-name: colorChange;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: step-start;
+        }
     }
     nav {
         margin-left: auto;
@@ -326,4 +332,11 @@ footer {
     position: absolute;
     right: 0;
     top: 0;
+  }
+
+  @keyframes colorChange {
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: green;}
   }
