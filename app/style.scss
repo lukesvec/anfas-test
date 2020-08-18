@@ -11,6 +11,7 @@
 * {
     box-sizing: border-box;
 }
+
 html {
     // better font rendering across platforms
     font-size: 100%;
@@ -23,10 +24,26 @@ html {
     -webkit-font-smoothing: antialiased;
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
+
 body {
     font-family: var(--fontMain);
     font-size: 16px;
     color: var(--black);
+}
+
+h3 {
+    text-align: center;
+}
+
+a {
+    text-decoration: underline;
+    color: var(--black);
+    font-weight: 600;
+    @include animate;
+    &:hover, &:focus, &:active {
+        color: var(--colorBrand);
+        @include animate;
+    }
 }
 
 .clearfix:after {
@@ -54,11 +71,13 @@ body {
 @mixin animate {
     transition: all .3s linear;
 }
+
 h1,h2,h3,h4,h5,h6  {
     font-family: var(--fontAlt);
     text-transform: uppercase;
     font-weight: 700;
 }
+
 article {
     @include container;
     h3 {
@@ -67,6 +86,7 @@ article {
         letter-spacing: 1.5px;
     }
 }
+
 p {
     max-width: 768px;
     width: 100%;
@@ -199,21 +219,6 @@ header {
         }
     }
 }
-
-h3 {
-    text-align: center;
-}
-a {
-    text-decoration: underline;
-    color: var(--black);
-    font-weight: 600;
-    @include animate;
-    &:hover, &:focus, &:active {
-        color: var(--colorBrand);
-        @include animate;
-    }
-}
-
 
 .moreArticles {
     @include container;
